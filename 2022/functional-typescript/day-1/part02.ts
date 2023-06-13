@@ -1,6 +1,6 @@
 import { pipe, A, N } from "@mobily/ts-belt";
 
-import { perpareInput, mergeInput, sortDescendingOrder } from './common';
+import { parseAndConvertToNumbers, sumNestedArrays, sortDescendingOrder } from './common';
 
 const input = `
 1000
@@ -21,8 +21,8 @@ const input = `
 
 const output = pipe(
   input,
-  perpareInput,
-  mergeInput,
+  parseAndConvertToNumbers,
+  sumNestedArrays,
   sortDescendingOrder,
   A.filterWithIndex(N.lte(2)),
   A.reduce(0, N.add)
