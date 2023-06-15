@@ -24,7 +24,8 @@ const output = pipe(
   parseAndConvertToNumbers,
   sumNestedArrays,
   sortDescendingOrder,
-  A.filterWithIndex(N.lte(2)),
+  // ❌ BAD A.filterWithIndex(N.lte(2)),
+  A.take(3), // ✅ GOOD
   A.reduce(0, N.add)
 );
 
