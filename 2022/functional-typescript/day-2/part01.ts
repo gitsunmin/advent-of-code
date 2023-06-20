@@ -1,16 +1,13 @@
-import { pipe, A, N } from "@mobily/ts-belt";
+import { pipe, A } from "@mobily/ts-belt";
 
-import { parseInput, handleInput } from './common';
+import { parseInput, handleInput, sum } from "./common";
 
 const input = `A Y
 B X
 C Z`;
 
-const output = pipe(
-  input,
-  parseInput,
-  A.map(handleInput),
-  A.reduce(0, N.add)
-);
+const handleInputs = A.map(handleInput);
 
-console.log("output:", output);
+const output = pipe(input, parseInput, handleInputs, sum);
+
+console.log("output:", output); // 15

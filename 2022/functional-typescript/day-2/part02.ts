@@ -1,13 +1,13 @@
-import { pipe, A, N, flow } from "@mobily/ts-belt";
+import { pipe, A, flow } from "@mobily/ts-belt";
 import { P, match } from "ts-pattern";
 
-import type { InputTupleType, MyHandShapeType } from "./handType";
-import { handleInput, parseInput } from "./common";
-/**
- * X: you need to lose
- * Y: you need to draw
- * Z: you need to win
- */
+import {
+  handleInput,
+  parseInput,
+  sum,
+  type InputTupleType,
+  type MyHandShapeType,
+} from "./common";
 
 const input = `A Y
 B X
@@ -45,17 +45,14 @@ const makeMyHand = (input: InputTupleType) =>
     .with([P._, "Z"], winHand)
     .exhaustive();
 
-const makeAndHandleInput = flow(
-  (hands: InputTupleType) =>
-    [A.head(hands), makeMyHand(hands)] as InputTupleType,
-  handleInput
+const makeAndHandleInput = A.map(
+  flow(
+    (hands: InputTupleType) =>
+      [A.head(hands), makeMyHand(hands)] as InputTupleType,
+    handleInput
+  )
 );
 
-const output = pipe(
-  input,
-  parseInput,
-  A.map(makeAndHandleInput),
-  A.reduce(0, N.add)
-);
+const output = pipe(input, parseInput, makeAndHandleInput, sum);
 
-console.log("output:", output);
+console.log("output:", output); // 12

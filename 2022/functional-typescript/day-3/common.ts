@@ -1,4 +1,4 @@
-import { A, D, N, pipe } from "@mobily/ts-belt";
+import { A, D, N, O, S, flow, pipe } from "@mobily/ts-belt";
 
 const LOWER_CASE_ALPHABET = [
   "a",
@@ -58,18 +58,40 @@ const UPPER_CASE_ALPHABET = [
   "Z",
 ] as const;
 
-export type Alphabet =
+type Alphabet =
   | (typeof LOWER_CASE_ALPHABET)[number]
   | (typeof UPPER_CASE_ALPHABET)[number];
 
-export const alphabetAndNumberMap: Record<Alphabet, number> = pipe(
-  A.concat(LOWER_CASE_ALPHABET, UPPER_CASE_ALPHABET),
-  A.mapWithIndex<Alphabet, [Alphabet, number]>((index, alphabet) => [
-    alphabet,
-    N.add(index, 1),
-  ]),
-  D.fromPairs
+const getNumberFromAlphabet = (alphabet: Alphabet) =>
+  pipe(
+    A.concat(LOWER_CASE_ALPHABET, UPPER_CASE_ALPHABET),
+    A.mapWithIndex<Alphabet, [Alphabet, number]>((index, alphabet) => [
+      alphabet,
+      N.add(index, 1),
+    ]),
+    D.fromPairs,
+    D.get(alphabet)
+  );
+
+const slice = flow((str: string) => S.splitAt(str, N.divide(S.length(str), 2)));
+
+const find = flow(([compartment1, compartment2]: readonly [string, string]) =>
+  pipe(
+    compartment1,
+    S.split("") as (str: string) => readonly Alphabet[],
+    A.find<Alphabet>((str: string) => S.includes(compartment2, str))
+  )
 );
 
-export const getNumberFromAlphabet = (alphabet: string) =>
-  alphabetAndNumberMap[alphabet as Alphabet] ?? 0;
+export const parseInput = flow(S.split("\n"), A.filter(S.isNotEmpty));
+
+export const sliceAndFind = flow(
+  A.map(flow(slice, find)),
+  A.filterMap(O.toNullable)
+);
+
+export const sumNumber = flow(
+  A.map<Alphabet, O.Option<number>>(getNumberFromAlphabet),
+  A.filterMap(O.toNullable),
+  A.reduce(0, N.add)
+);
