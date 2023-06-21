@@ -1,4 +1,5 @@
-import { A, D, N, O, S, flow, pipe } from "@mobily/ts-belt";
+import { A, D, F, N, O, S, flow, pipe } from "@mobily/ts-belt";
+import { match } from "ts-pattern";
 
 const LOWER_CASE_ALPHABET = [
   "a",
@@ -58,40 +59,47 @@ const UPPER_CASE_ALPHABET = [
   "Z",
 ] as const;
 
-type Alphabet =
+export type Alphabet =
   | (typeof LOWER_CASE_ALPHABET)[number]
   | (typeof UPPER_CASE_ALPHABET)[number];
 
+export const ALPHABETS = A.concat(LOWER_CASE_ALPHABET, UPPER_CASE_ALPHABET);
+
 const getNumberFromAlphabet = (alphabet: Alphabet) =>
   pipe(
-    A.concat(LOWER_CASE_ALPHABET, UPPER_CASE_ALPHABET),
+    ALPHABETS,
     A.mapWithIndex<Alphabet, [Alphabet, number]>((index, alphabet) => [
       alphabet,
       N.add(index, 1),
     ]),
-    D.fromPairs,
+    D.fromPairs<number, Alphabet>,
     D.get(alphabet)
   );
 
-const slice = flow((str: string) => S.splitAt(str, N.divide(S.length(str), 2)));
+export const slice = flow((str: string) =>
+  S.splitAt(str, N.divide(S.length(str), 2))
+);
 
-const find = flow(([compartment1, compartment2]: readonly [string, string]) =>
-  pipe(
-    compartment1,
-    S.split("") as (str: string) => readonly Alphabet[],
-    A.find<Alphabet>((str: string) => S.includes(compartment2, str))
-  )
+export const find = flow((compartments: readonly string[]) =>
+  match(compartments)
+    .when(A.isNotEmpty, () =>
+      pipe(
+        compartments,
+        A.head,
+        S.split("") as (str: O.Option<string>) => readonly Alphabet[],
+        A.filter<Alphabet>((str: Alphabet) =>
+          A.every(A.tailOrEmpty(compartments), S.includes(str))
+        ),
+        A.take(1)
+      )
+    )
+    .otherwise(F.always([]))
 );
 
 export const parseInput = flow(S.split("\n"), A.filter(S.isNotEmpty));
 
-export const sliceAndFind = flow(
-  A.map(flow(slice, find)),
-  A.filterMap(O.toNullable)
-);
-
 export const sumNumber = flow(
-  A.map<Alphabet, O.Option<number>>(getNumberFromAlphabet),
+  A.map(getNumberFromAlphabet),
   A.filterMap(O.toNullable),
   A.reduce(0, N.add)
 );

@@ -1,4 +1,4 @@
-import { pipe } from "@mobily/ts-belt";
+import { A, flow, pipe } from "@mobily/ts-belt";
 
 import * as Day3 from "./common";
 
@@ -10,6 +10,12 @@ ttgJtRGJQctTZtZT
 CrZsJsPPZsGzwwsLwLmpwMDw
 `;
 
-const output = pipe(input, Day3.parseInput, Day3.sliceAndFind, Day3.sumNumber);
+const output = pipe(
+  input,
+  Day3.parseInput,
+  A.map(flow(Day3.slice, Day3.find)),
+  A.flat,
+  Day3.sumNumber
+);
 
 console.log("output:", output);
