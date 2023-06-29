@@ -1,4 +1,4 @@
-import { A, S, flow, pipe } from "@mobily/ts-belt";
+import { A, S, flow } from "@mobily/ts-belt";
 
 export const parseInput = flow(
   S.split("\n"),
@@ -18,6 +18,9 @@ export const fullyInclusion = ([elf1, elf2]: [
   );
 };
 
-export const overlapOnly = (elfs: [[number, number], [number, number]]) => {
-  return !fullyInclusion(elfs);
+export const overlap = (elfs: [[number, number], [number, number]]) => {
+  const [elf1, elf2] = elfs;
+  const [elf1Start, elf1End] = elf1;
+  const [elf2Start, elf2End] = elf2;
+  return elf1End >= elf2Start && elf2End >= elf1Start;
 };
