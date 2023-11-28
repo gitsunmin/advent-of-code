@@ -13,15 +13,16 @@ fn parse_input(input: String) -> Vec<Vec<i32>> {
         .collect::<Vec<Vec<i32>>>();
 }
 
-fn solve_part_1(input: Vec<Vec<i32>>) -> i32 {
-    return input
-        .iter()
-        .map(|x| x.iter().sum())
-        .collect::<Vec<i32>>()
-        .iter()
-        .copied()
-        .max()
-        .unwrap();
+fn solve_part_1(input: &Vec<Vec<i32>>) -> i32 {
+    input.iter().map(|x| x.iter().sum::<i32>()).max().unwrap()
+}
+
+fn solve_part_2(input: &Vec<Vec<i32>>) -> i32 {
+    let mut sums: Vec<i32> = input.iter().map(|x| x.iter().sum()).collect();
+
+    sums.sort_by(|a, b| b.cmp(a));
+
+    sums.iter().take(3).sum()
 }
 
 pub fn run() -> (i32, i32) {
@@ -29,5 +30,5 @@ pub fn run() -> (i32, i32) {
 
     let parsed_input = parse_input(input);
 
-    return (solve_part_1(parsed_input), 0);
+    return (solve_part_1(&parsed_input), solve_part_2(&parsed_input));
 }
