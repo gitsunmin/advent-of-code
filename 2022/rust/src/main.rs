@@ -1,4 +1,4 @@
-#[path = "day1/index.rs"]
+#[path = "day-1/index.rs"]
 mod day1;
 
 fn main() {

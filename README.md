@@ -2,6 +2,15 @@
 
 > https://adventofcode.com/
 
+## 2023
+
+### rust
+
+| Day | title                                                          | Part 1                                                    | Part 2                                                    |
+| --- | -------------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| 1   | [Trebuchet?!](https://adventofcode.com/2023/day/1)        | ⭐️ [part 1](/2023/rust/src/day-1/index.rs)                   | ⭐️ [part 2](/2023/rust/src/day-1/index.rs)                   |
+| 2   | [Cube Conundrum](https://adventofcode.com/2023/day/2)     | ⭐️ [part 1](/2023/rust/src/day-2/index.rs)                   | ⭐️ [part 2](/2023/rust/src/day-2/index.rs)                   |
+
 ## 2022
 
 ### functional-typescript
@@ -13,3 +22,9 @@
 | 3   | [Rucksack Reorganization](https://adventofcode.com/2022/day/3) | ⭐️ [part 1](/2022/functional-typescript/day-3/part01.ts) | ⭐️ [part 2](/2022/functional-typescript/day-3/part02.ts) |
 | 4   | [Camp Cleanup](https://adventofcode.com/2022/day/4)            | ⭐️ [part 1](/2022/functional-typescript/day-4/part01.ts) | ⭐️ [part 2](/2022/functional-typescript/day-4/part02.ts) |
 | 5   | [Supply Stacks](https://adventofcode.com/2022/day/5)           | ⬜️ [part 1](/2022/functional-typescript/day-5/part01.ts) | ⬜️ [part 2](/2022/functional-typescript/day-5/part02.ts) |
+
+### rust
+
+| Day | title                                                          | Part 1                                                    | Part 2                                                    |
+| --- | -------------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| 1   | [Calorie Counting](https://adventofcode.com/2022/day/1)        | ⭐️ [part 1](/2022/rust/src/day-1/index.rs)                   | ⭐️ [part 2](/2022/rust/src/day-1/index.rs)                   |
