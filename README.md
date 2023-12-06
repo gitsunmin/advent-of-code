@@ -11,6 +11,8 @@
 | 1   | [Trebuchet?!](https://adventofcode.com/2023/day/1)        | ⭐️ [part 1](/2023/rust/src/day-1/index.rs)                   | ⭐️ [part 2](/2023/rust/src/day-1/index.rs)                   |
 | 2   | [Cube Conundrum](https://adventofcode.com/2023/day/2)     | ⭐️ [part 1](/2023/rust/src/day-2/index.rs)                   | ⭐️ [part 2](/2023/rust/src/day-2/index.rs)                   |
 | 3   | [Gear Ratios](https://adventofcode.com/2023/day/3) | ⭐️ [part 1](/2023/rust/src/day-3/index.rs)                   | ⭐️ [part 2](/2023/rust/src/day-3/index.rs)                   |
+| 4   | [Scratchcards](https://adventofcode.com/2023/day/4)            | ⭐️ [part 1](/2023/rust/src/day-4/index.rs)                   | ⬜️ [part 2](/2023/rust/src/day-4/index.rs)                   |
+
 
 ## 2022
 
