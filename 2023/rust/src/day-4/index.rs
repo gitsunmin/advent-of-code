@@ -38,11 +38,9 @@ fn solve_part_1(input: Vec<Vec<Vec<i32>>>) -> i32 {
 
             return 내_번호들
                 .iter()
-                .fold(0, |acc, x| {
-                    if 당첨번호들.contains(x) {
-                        return acc + 1;
-                    }
-                    return acc;
+                .fold(0, |acc, x| match 당첨번호들.contains(x) {
+                    true => acc + 1,
+                    false => acc,
                 })
                 .clone();
         })
@@ -55,6 +53,32 @@ fn solve_part_1(input: Vec<Vec<Vec<i32>>>) -> i32 {
 }
 
 fn solve_part_2(input: Vec<Vec<Vec<i32>>>) -> i32 {
+    let 당첨_수_리스트 = input
+        .iter()
+        .map(|x| {
+            let 당첨번호들 = &x[1];
+            let 내_번호들 = &x[2];
+
+            return 내_번호들
+                .iter()
+                .fold(0, |acc, x| match 당첨번호들.contains(x) {
+                    true => acc + 1,
+                    false => acc,
+                })
+                .clone();
+        })
+        .collect::<Vec<_>>();
+
+    fn copy_card(cards: Vec<i32>) -> Vec<Vec<i32>> {
+        return cards
+            .clone()
+            .iter()
+            .enumerate()
+            .map(|(x_index, x)| cards[x_index..*x as usize].to_vec())
+            .collect::<Vec<_>>();
+    }
+
+    println!("당첨_수_리스트: {:?}", copy_card(당첨_수_리스트));
     return 2;
 }
 
