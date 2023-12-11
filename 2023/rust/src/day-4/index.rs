@@ -69,17 +69,18 @@ fn solve_part_2(input: Vec<Vec<Vec<i32>>>) -> i32 {
         })
         .collect::<Vec<_>>();
 
-    fn copy_card(cards: Vec<i32>) -> Vec<Vec<i32>> {
-        return cards
-            .clone()
-            .iter()
-            .enumerate()
-            .map(|(x_index, x)| cards[x_index..*x as usize].to_vec())
-            .collect::<Vec<_>>();
-    }
+    let mut 각각_복제된_카드_수_리스트 = vec![1; 당첨_수_리스트.len()];
 
-    println!("당첨_수_리스트: {:?}", copy_card(당첨_수_리스트));
-    return 2;
+    for (idx, card) in 당첨_수_리스트.iter().enumerate() {
+        for _ in 0..각각_복제된_카드_수_리스트[idx] {
+            ((idx + 1)..(idx + 1 + card)).for_each(|i| {
+                if i != 당첨_수_리스트.len() {
+                    각각_복제된_카드_수_리스트[i] += 1;
+                }
+            });
+        }
+    }
+    return 각각_복제된_카드_수_리스트.iter().sum::<i32>();
 }
 
 pub fn run() -> (i32, i32) {
