@@ -1,10 +1,7 @@
-use regex::Regex;
-use std::fs;
+#[path = "../utils/index.rs"]
+mod utils;
 
-fn read_input() -> String {
-    return fs::read_to_string("src/../../inputs/day3.txt")
-        .expect("Something went wrong reading the file");
-}
+use regex::Regex;
 
 fn parse_input(input: String) -> Vec<String> {
     return input.split("\n").map(|x| x.to_string()).collect();
@@ -173,7 +170,7 @@ fn solve_part_2(input: &Vec<String>) -> i32 {
 }
 
 pub fn run() -> (i32, i32) {
-    let input = read_input();
+    let input = utils::read_input(3);
     let parsed_input = parse_input(input);
 
     let part_1_result = solve_part_1(&parsed_input);

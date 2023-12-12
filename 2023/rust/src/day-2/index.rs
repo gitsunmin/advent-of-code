@@ -1,15 +1,12 @@
+#[path = "../utils/index.rs"]
+mod utils;
+
 use std::collections::HashSet;
-use std::fs;
 
 enum Color {
     Red,
     Blue,
     Green,
-}
-
-fn read_input() -> String {
-    return fs::read_to_string("src/../../inputs/day2.txt")
-        .expect("Something went wrong reading the file");
 }
 
 fn parse_input(input: String) -> Vec<(i32, Vec<Vec<i32>>)> {
@@ -90,7 +87,7 @@ fn solve_part_2(input: Vec<(i32, Vec<Vec<i32>>)>) -> i32 {
 }
 
 pub fn run() -> (i32, i32) {
-    let input = read_input();
+    let input = utils::read_input(2);
     let parsed_input = parse_input(input);
     let part_1_result = solve_part_1(parsed_input.clone());
     let part_2_result = solve_part_2(parsed_input.clone());
