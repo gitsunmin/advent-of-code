@@ -9,6 +9,9 @@ mod day4;
 #[path = "day-5/index.rs"]
 mod day5;
 
+#[path = "day-6/index.rs"]
+mod day6;
+
 fn main() {
     println!("##########################################\n");
     println!("Starting 2023 Advent of Code Rust solutions");
@@ -17,6 +20,7 @@ fn main() {
     let (day3_part1, day3_part2) = day3::run();
     let (day4_part1, day4_part2) = day4::run();
     let (day5_part1, day5_part2) = day5::run();
+    let (day6_part1, day6_part2) = day6::run();
 
     println!("------------------------------------------");
     println!("Day 1 | Part1 : {} | Part2 : {}", day1_part1, day1_part2);
@@ -24,6 +28,7 @@ fn main() {
     println!("Day 3 | Part1 : {} | Part2 : {}", day3_part1, day3_part2);
     println!("Day 4 | Part1 : {} | Part2 : {}", day4_part1, day4_part2);
     println!("Day 5 | Part1 : {} | Part2 : {}", day5_part1, day5_part2);
+    println!("Day 6 | Part1 : {} | Part2 : {}", day6_part1, day6_part2);
 
     println!("\n##########################################");
 }
