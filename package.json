@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@types/bun": "latest"
+  },
+  "name": "advent-of-code",
+  "type": "module",
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
