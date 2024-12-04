@@ -9,6 +9,7 @@
 | Day | title                                                          | Part 1                                                    | Part 2                                                    |
 | --- | -------------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
 | 1   | [Historian Hysteria](https://adventofcode.com/2024/day/1)        | ⭐️ [part 1](/2024/typescript/day-1/part01.ts)                   | ⭐️ [part 2](/2024/typescript/day-1/part02.ts)                   |
+| 2   | [Red-Nosed Report](https://adventofcode.com/2024/day/2)        | ⭐️ [part 1](/2024/typescript/day-2/part01.ts)                   | ⭐️ [part 2](/2024/typescript/day-2/part02.ts)                   |
 
 
 
