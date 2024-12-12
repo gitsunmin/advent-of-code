@@ -11,7 +11,8 @@
 | 1   | [Historian Hysteria](https://adventofcode.com/2024/day/1)        | ⭐️ [part 1](/2024/typescript/day-1/part01.ts)                   | ⭐️ [part 2](/2024/typescript/day-1/part02.ts)                   |
 | 2   | [Red-Nosed Report](https://adventofcode.com/2024/day/2)        | ⭐️ [part 1](/2024/typescript/day-2/part01.ts)                   | ⭐️ [part 2](/2024/typescript/day-2/part02.ts)                   |
 | 3   | [Mull It Over](https://adventofcode.com/2024/day/3)        | ⭐️ [part 1](/2024/typescript/day-3/part01.ts)                   | ⭐️ [part 2](/2024/typescript/day-3/part02.ts)                   |
-| 4   | [Ceres Search](https://adventofcode.com/2024/day/4)        | ⭐️ [part 1](/2024/typescript/day-4/part01.ts)                   | ★ part 2                   |
+| 4   | [Ceres Search](https://adventofcode.com/2024/day/4)        | ⭐️ [part 1](/2024/typescript/day-4/part01ts)                   | ★ part 2                   |
+| 5   | [Print Queue](https://adventofcode.com/2024/day/5)        | ⭐️ [part 1](/2024/typescript/day-5/part01.ts)                   | ⭐️ [part 2](/2024/typescript/day-5/part02.ts)            |
 
 
 
